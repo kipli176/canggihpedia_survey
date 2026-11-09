@@ -9,8 +9,6 @@ services:
       HOST: 0.0.0.0
       PORT: 8080
       TZ: Asia/Jakarta
-    expose:
-      - "8080"
     volumes:
       - ./data:/app/data
     networks:
