@@ -1,0 +1,23 @@
+services:
+  survey:
+    build: .
+    container_name: canggihpedia-survey
+    env_file:
+      - .env
+    environment:
+      DATABASE_PATH: /app/data/survey.sqlite3
+      HOST: 0.0.0.0
+      PORT: 8080
+      TZ: Asia/Jakarta
+    expose:
+      - "8080"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - cloudflared
+    restart: unless-stopped
+
+networks:
+  cloudflared:
+    external: true
+    name: cloudflared
